@@ -9,12 +9,6 @@ class PageExtensionsTest < Test::Unit::TestCase
     @pages = pages(:homepage).children
   end
 
-  def test_should_insert_at_top_on_creation
-    @page.attributes = page_params(:parent_id => pages(:homepage).id)
-    assert @page.save
-    assert_equal 1, @page.position
-  end
-
   def test_should_add_acts_as_list_methods
     [:position, :move_higher, :move_lower, :move_to_top, :move_to_bottom].each do |m|
       assert_respond_to @page, m
