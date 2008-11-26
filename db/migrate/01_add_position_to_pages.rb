@@ -15,8 +15,7 @@ class AddPositionToPages < ActiveRecord::Migration
   
   def self.put_children_into_list(page)
     page.children.find(:all, :order => "title asc").each_with_index do |pg, idx|
-      pg.position = idx + 1
-      pg.save
+      pg.update_attribute('position', idx + 1)
       put_children_into_list(pg)
     end
   end
