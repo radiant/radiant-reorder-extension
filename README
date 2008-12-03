@@ -21,10 +21,11 @@ http://www.famfamfam.com/lab/icons/silk/
 
 2) Run the extension migrations.
 
-  $ rake production db:migrate:extensions
+  $ rake production radiant:extensions:reorder:migrate
 
 3) Run the extension update task.
 
-  $ rake radiant:extensions:reorder:update
+  $ rake production radiant:extensions:reorder:update
   
-4) Restart your server
+4) Restart your server and edit the order of the pages from the admin interface.
+To bypass the ordering system simply supply a "by" option to the finder tags.
