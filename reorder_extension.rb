@@ -7,7 +7,7 @@ class ReorderExtension < Radiant::Extension
   url "http://dev.radiantcms.org/"
   
   define_routes do |map|
-    map.with_options :controller => "admin/page" do |page|
+    map.with_options :controller => "admin/pages" do |page|
       page.page_move_lower "admin/pages/:id/move_lower", :action => "move_lower"
       page.page_move_higher "admin/pages/:id/move_higher", :action => "move_higher"
       page.page_move_to_bottom "admin/pages/:id/move_to_bottom", :action => "move_to_bottom"
@@ -20,8 +20,8 @@ class ReorderExtension < Radiant::Extension
     admin.page.index.add :node, "order"
     admin.page.index.add :top, 'header'
     Page.send :include, Reorder::PageExtensions
-    Admin::PageController.send :include, Reorder::PageControllerExtensions
-    Admin::PageController.send :helper, Reorder::PageHelper
+    Admin::PagesController.send :include, Reorder::PagesControllerExtensions
+    Admin::PagesController.send :helper, Reorder::PageHelper
     StandardTags.send :include, Reorder::TagExtensions
   end
   

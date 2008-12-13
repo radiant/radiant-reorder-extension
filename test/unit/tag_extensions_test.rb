@@ -4,7 +4,7 @@ require 'ostruct'
 class TagExtensionsTest < Test::Unit::TestCase
   def setup
     @tag = OpenStruct.new
-    @tag.attr = {}
+    @tag.attr = { :status => 'all' }
     @children_find_options = Page.new.method(:children_find_options)
   end
   
