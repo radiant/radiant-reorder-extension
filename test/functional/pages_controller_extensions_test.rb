@@ -1,13 +1,13 @@
 require File.dirname(__FILE__) + "/../test_helper"
 
-Admin::PageController.class_eval { def rescue_action(e); raise(e); end }
+Admin::PagesController.class_eval { def rescue_action(e); raise(e); end }
 
 class PagesControllerExtensions < Test::Unit::TestCase
   fixtures :pages
   test_helper :login, :page, :difference
 
   def setup
-    @controller = Admin::PageController.new
+    @controller = Admin::PagesController.new
     @request = ActionController::TestRequest.new
     @response = ActionController::TestResponse.new
     login_as(:existing)

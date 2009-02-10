@@ -20,8 +20,8 @@ class ReorderExtension < Radiant::Extension
     admin.page.index.add :node, "order"
     admin.page.index.add :top, 'header'
     Page.send :include, Reorder::PageExtensions
-    Admin::PageController.send :include, Reorder::PagesControllerExtensions
-    Admin::PageController.send :helper, Reorder::PageHelper
+    Admin::PagesController.send :include, Reorder::PagesControllerExtensions
+    Admin::PagesController.send :helper, Reorder::PageHelper
     StandardTags.send :include, Reorder::TagExtensions
   end
   
