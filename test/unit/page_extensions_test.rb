@@ -4,11 +4,6 @@ class PageExtensionsTest < Test::Unit::TestCase
   dataset :pages_with_positions
   
   def setup
-    Page.delete_all
-    pages.load
-    load = dataset_session.load_datasets_for(self.class)
-    extend_from_dataset_load(load)
-
     @page = Page.new
     @pages = pages(:home).children
   end
