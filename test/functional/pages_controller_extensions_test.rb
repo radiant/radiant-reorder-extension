@@ -3,8 +3,7 @@ require File.dirname(__FILE__) + "/../test_helper"
 Admin::PagesController.class_eval { def rescue_action(e); raise(e); end }
 
 class PagesControllerExtensions < Test::Unit::TestCase
-  fixtures :pages
-  test_helper :login, :page, :difference
+  dataset :users, :pages_with_positions
 
   def setup
     @controller = Admin::PagesController.new
@@ -14,7 +13,7 @@ class PagesControllerExtensions < Test::Unit::TestCase
   end
   
   def test_move_higher
-    assert_difference pages(:documentation), :position, -1 do
+    assert_difference 'pages(:documentation).position', -1 do
       post :move_higher, :id => pages(:documentation).id
       assert_response :redirect
       assert_equal pages(:documentation).id, assigns(:page).id
@@ -23,7 +22,7 @@ class PagesControllerExtensions < Test::Unit::TestCase
   end
   
   def test_move_lower
-    assert_difference pages(:documentation), :position, 1 do
+    assert_difference 'pages(:documentation).position', 1 do
       post :move_lower, :id => pages(:documentation).id
       assert_response :redirect
       assert_equal pages(:documentation).id, assigns(:page).id
@@ -42,7 +41,7 @@ class PagesControllerExtensions < Test::Unit::TestCase
     post :move_to_bottom, :id => pages(:documentation).id
     assert_response :redirect
     assert_equal pages(:documentation).id, assigns(:page).id
-    assert_equal 21, assigns(:page).position
+    assert_equal 6, assigns(:page).position
   end
 
   def test_requires_login
