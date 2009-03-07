@@ -10,6 +10,8 @@ class Test::Unit::TestCase
   include Dataset
   datasets_directory "#{RADIANT_ROOT}/spec/datasets"
   Dataset::Resolver.default << "#{File.expand_path(File.dirname(__FILE__) + "/datasets")}"
+
+  self.use_transactional_fixtures = true
  
   # for login_as helper
   def request
