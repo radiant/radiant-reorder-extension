@@ -1,8 +1,8 @@
 # Uncomment this if you reference any of your controllers in activate
-require_dependency 'application'
+require_dependency 'application_controller'
 
 class ReorderExtension < Radiant::Extension
-  version "0.1.1"
+  version "0.2.0"
   description "Allows (re)ordering of pages in the page tree."
   url "http://dev.radiantcms.org/"
   

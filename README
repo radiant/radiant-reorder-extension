@@ -13,8 +13,6 @@ No drag-and-drop for now!  Keeping it simple.
 Included images are slightly modified from FamFamFam Silk Icons by Mark James:
 http://www.famfamfam.com/lab/icons/silk/
 
-*** THIS EXTENSION REQUIRES THE 'SHARDS' EXTENSION TO BE INSTALLED ***
-
 == Installation
 
 1) Unpack/checkout/export the extension into vendor/extensions of your project.
@@ -29,3 +27,6 @@ http://www.famfamfam.com/lab/icons/silk/
   
 4) Restart your server and edit the order of the pages from the admin interface.
 To bypass the ordering system simply supply a "by" option to the finder tags.
+
+== Compatibility
+The 0.7.1 tag is compatible with Radiant 0.7.1. Edge is currently compatible with Radiant 0.8.0RC1.

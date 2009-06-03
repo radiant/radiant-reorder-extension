@@ -5,7 +5,7 @@ module Reorder::PagesControllerExtensions
       @page = Page.find(params[:id])
       @page.parent.reload.children.reload
       @page.send(action)
-      request.env["HTTP_REFERER"] ? redirect_to(:back) : redirect_to(admin_pages_url)
+      response_for :update
     end
   end
   

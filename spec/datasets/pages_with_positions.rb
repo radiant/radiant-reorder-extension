@@ -9,4 +9,10 @@ class PagesWithPositionsDataset < Dataset::Base
     create_page "Page Y", :position => 5
     create_page "Page Z", :position => 6
   end
+  
+  helpers do
+    def order_map(coll)
+      coll.map {|r| [r.position, r.title]}
+    end
+  end
 end
